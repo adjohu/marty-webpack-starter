@@ -1,0 +1,6 @@
+node_modules
+.idea
+dist/main.js
+app/config.json
+.DS_Store
+npm-debug.log

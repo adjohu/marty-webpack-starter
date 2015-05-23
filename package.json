@@ -1,0 +1,35 @@
+{
+  "devDependencies": {
+    "autoprefixer-core": "^5.1.11",
+    "babel-core": "^5.3.1",
+    "babel-loader": "^5.0.0",
+    "bootstrap": "^3.3.4",
+    "bootstrap-webpack": "0.0.3",
+    "css-loader": "^0.13.1",
+    "file-loader": "^0.8.1",
+    "gulp": "^3.8.11",
+    "json-loader": "^0.5.1",
+    "node-libs-browser": "^0.5.0",
+    "node-sass": "^2.1.1",
+    "postcss-loader": "^0.4.3",
+    "postcss-local-scope": "0.0.5",
+    "react-hot-loader": "^1.2.7",
+    "require-json": "0.0.1",
+    "sass-loader": "^0.5.0",
+    "style-loader": "^0.12.2",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.9.5",
+    "webpack-dev-server": "^1.8.2"
+  },
+  "dependencies": {
+    "extract-text-webpack-plugin": "^0.8.0",
+    "lodash": "^3.8.0",
+    "marty": "^0.9.13",
+    "react": "^0.13.3",
+    "react-bootstrap": "^0.22.3",
+    "react-router": "^0.13.3"
+  },
+  "scripts": {
+    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base ./dist --history-api-fallback --hot --port 9009"
+  }
+}
