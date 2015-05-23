@@ -1,0 +1,7 @@
+{
+  "APP_NAME": "Marty webpack",
+  "API": {
+    "ROOT": "http://my-api/",
+    "AUTH_SCHEME": "my-auth-scheme"
+  }
+}
