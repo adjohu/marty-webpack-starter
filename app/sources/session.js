@@ -18,4 +18,4 @@ class Session extends Marty.SessionStorageStateSource {
   }
 }
 
-export default Marty.register(Session);
+export default Session;

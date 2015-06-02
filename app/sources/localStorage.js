@@ -18,4 +18,4 @@ class LocalStorage extends Marty.LocalStorageStateSource {
   }
 }
 
-export default Marty.register(LocalStorage);
+export default LocalStorage;

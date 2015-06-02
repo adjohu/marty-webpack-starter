@@ -53,5 +53,5 @@ module.exports = {
     require('autoprefixer-core')
   ],
 
-  devtool: 'inline-source-map'
+  devtool: 'source-map'
 };

@@ -1,17 +1,20 @@
 import React from 'react';
 import Marty from 'marty';
+import Application from './application';
+import Layout from './layout';
+let {ApplicationContainer} = Marty;
 
-// TODO: find somewhere better to load this.
-import HttpHooks from './sources/httpHooks';
+let app = new Application();
 
-import Router from './router';
-import NavigationActionCreators from './actions/navigationActionCreators';
+window.React = React;
+window.Marty = Marty;
 
-// Uncomment for dev tools
-// window.React = React;
-// window.Marty = Marty;
+app.router.run((Handler, state) => {
+  app.navigationActionCreators.changeRoute(state, Handler);
 
-Router.run((Handler, state) => {
-  NavigationActionCreators.changeRoute(state, Handler);
-  React.render(<Handler {...state.params} />, document.getElementById('app'))
+  React.render((
+    <ApplicationContainer app={app}>
+      <Handler {...state.params} />
+    </ApplicationContainer>
+  ), document.getElementById('app'));
 });
