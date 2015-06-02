@@ -11,7 +11,6 @@ export default function(OriginalComponent, allowedRoles) {
   let extendedComponent =  class extends React.Component {
 
     componentWillMount() {
-      console.log('w')
       if(!this.app.loginStore.isLoggedIn()){
         return this.app.navigationActionCreators.navigateToLogin();
       }
