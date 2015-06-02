@@ -2,9 +2,6 @@ import _ from 'lodash';
 import Marty from 'marty';
 import LoginConstants from '../constants/loginConstants';
 
-import Session from '../sources/session';
-import LocalStorage from '../sources/localStorage';
-
 class LoginStore extends Marty.Store {
   constructor(options) {
     super(options);
@@ -31,14 +28,14 @@ class LoginStore extends Marty.Store {
   }
 
   /**
-  * Remembers a user for a longer period than the Session
+  * Remembers a user for a longer period than the this.app.session
   */
   rememberMe() {
-    LocalStorage.setToken(this.state.token);
+    this.app.localStorage.setToken(this.state.token);
   }
 
   gotToken(token) {
-    Session.setToken(token);
+    this.app.session.setToken(token);
     this.setState({token: token});
   }
 
@@ -55,8 +52,8 @@ class LoginStore extends Marty.Store {
   onLoggedOut() {
     console.log('loggedOut');
 
-    Session.logout();
-    LocalStorage.logout();
+    this.app.session.logout();
+    this.app.localStorage.logout();
 
     this.setState({
       token: null,
