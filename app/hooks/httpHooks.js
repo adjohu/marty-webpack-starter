@@ -9,11 +9,11 @@ function createAuthHeader(token) {
 
 Marty.HttpStateSource.addHook({
   id: 'addToken',
-  before: req => {
-    let token = LoginStore.getToken();
+
+  before(req) {
+    let token = this.app.loginStore.getToken();
     if (token) {
       req.headers['Authorization'] = createAuthHeader(token);
     }
   }
-
 });

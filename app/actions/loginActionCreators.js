@@ -2,9 +2,7 @@ import _ from 'lodash';
 import Marty from 'marty';
 import LoginConstants from '../constants/loginConstants';
 import UsersAPI from '../sources/usersApi';
-import LoginQueries from '../queries/loginQueries';
 import Router from '../router';
-import NavigationActionCreators from './navigationActionCreators';
 
 class LoginActionCreators extends Marty.ActionCreators {
   attemptLogin(username, password, rememberMe = false) {
@@ -24,23 +22,23 @@ class LoginActionCreators extends Marty.ActionCreators {
 
   loggedIn(user) {
     if (Router.getCurrentPath() === '/login') {
-      NavigationActionCreators.navigateHome();
+      this.app.navigationActionCreators.navigateHome();
     }
 
     this.dispatch(LoginConstants.LOGGED_IN, user);
   }
 
   attemptReAuth() {
-    if (LoginQueries.getTokenFromStorage()) {
-      LoginQueries.getUser().then(user => this.loggedIn(user));
+    if (this.app.loginQueries.getTokenFromStorage()) {
+      this.app.loginQueries.getUser().then(user => this.loggedIn(user));
     }
   }
 
   logout() {
     this.dispatch(LoginConstants.LOGGED_OUT);
     console.log('logout');
-    NavigationActionCreators.navigateToLogin();
+    this.app.navigationActionCreators.navigateToLogin();
   }
 }
 
-export default Marty.register(LoginActionCreators);
+export default LoginActionCreators;

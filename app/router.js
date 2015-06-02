@@ -8,6 +8,6 @@ export default Router.create({
 
 function location() {
   if (typeof window !== 'undefined') {
-    return Router.HistoryLocation;
+    return Router.HashLocation;
   }
 }

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import Marty from 'marty';
 import LoginConstants from '../constants/loginConstants';
-import LoginQueries from '../queries/loginQueries';
+
 import Session from '../sources/session';
 import LocalStorage from '../sources/localStorage';
 
@@ -73,7 +73,7 @@ class LoginStore extends Marty.Store {
         }
       },
       remotely() {
-        return LoginQueries.for(this).getUser();
+        return this.app.loginQueries.for(this).getUser();
       }
     })
   }
@@ -92,4 +92,4 @@ class LoginStore extends Marty.Store {
   }
 }
 
-export default Marty.register(LoginStore);
+export default LoginStore;

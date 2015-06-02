@@ -1,26 +1,27 @@
 import Marty from 'marty';
-import Router from '../router';
 import NavigationConstants from '../constants/navigationConstants';
-import LoginActionCreators from '../actions/loginActionCreators';
 
 class NavigationActionCreators extends Marty.ActionCreators {
   navigateHome() {
-    navigateTo('home');
+    this.navigateTo('home');
   }
   navigateToLogin() {
-    navigateTo('login');
+    this.navigateTo('login');
   }
+
   changeRoute(state) {
-    this.dispatch(NavigationConstants.CHANGE_ROUTE);
+    this.dispatch(NavigationConstants.CHANGE_ROUTE, state);
 
     if (state.path === '/logout') {
-      LoginActionCreators.logout();
+      this.app.loginActionCreators.logout();
     }
+  }
+
+  navigateTo(route, params={}) {
+    console.log('navigate to', route, params);
+    this.app.router.transitionTo(route, params);
   }
 }
 
-function navigateTo(route, params = {}) {
-  Router.transitionTo(route, params);
-}
 
-export default Marty.register(NavigationActionCreators);
+export default NavigationActionCreators;
