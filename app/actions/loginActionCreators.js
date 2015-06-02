@@ -2,7 +2,6 @@ import _ from 'lodash';
 import Marty from 'marty';
 import LoginConstants from '../constants/loginConstants';
 import UsersAPI from '../sources/usersApi';
-import Router from '../router';
 
 class LoginActionCreators extends Marty.ActionCreators {
   attemptLogin(username, password, rememberMe = false) {
