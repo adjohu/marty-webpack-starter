@@ -1,4 +1,6 @@
 # marty-webpack-starter
+
+[![Join the chat at https://gitter.im/adjohu/marty-webpack-starter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/adjohu/marty-webpack-starter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Opinionated flux starter app using Marty and Webpack.
 
 ## Cool stuff
